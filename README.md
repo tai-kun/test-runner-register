@@ -7,7 +7,11 @@ In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.htm
 ### Install
 
 ```bash
-npm i -D @swc-node/register @types/node test-runner-register typescript
+npm i -D \
+  test-runner-register \
+  @swc-node/register \
+  @types/node \
+  typescript
 ```
 
 ### CJS
@@ -15,7 +19,10 @@ npm i -D @swc-node/register @types/node test-runner-register typescript
 `path/to/script.ts`
 
 ```ts
-if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === __filename) {
+if (
+  process.env.NODE_ENV === "test" &&
+  process.env.TEST_RUNNER_FILE === __filename
+) {
   const {
     test,
     assert,
@@ -30,9 +37,15 @@ if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === __filena
 }
 ```
 
+Run:
+
 ```bash
-node -r test-runner-register/cjs -r @swc-node/register path/to/script.ts
+node -r test-runner-register/cjs \
+     -r @swc-node/register \
+     path/to/script.ts
 ```
+
+Log:
 
 ```log
 ▶ ...
@@ -54,7 +67,10 @@ node -r test-runner-register/cjs -r @swc-node/register path/to/script.ts
 `path/to/script.ts`
 
 ```ts
-if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === import.meta.url) {
+if (
+  process.env.NODE_ENV === "test" &&
+  process.env.TEST_RUNNER_FILE === import.meta.url
+) {
   const {
     test,
     assert,
@@ -69,9 +85,25 @@ if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === import.m
 }
 ```
 
+Run:
+
 ```bash
-node -r test-runner-register/esm --loader @swc-node/register/esm path/to/script.ts
+node -r test-runner-register/esm \
+     --loader @swc-node/register/esm \
+     path/to/script.ts
 ```
+
+Command diff:
+
+```diff
+- node -r test-runner-register/cjs \
+-      -r @swc-node/register \
++ node -r test-runner-register/esm \
++      --loader @swc-node/register/esm \
+       path/to/script.ts
+```
+
+Log:
 
 ```log
 (node:32773) ExperimentalWarning: Custom ESM Loaders is an experimental feature and might change at any time
