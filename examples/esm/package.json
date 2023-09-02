@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit": "node --loader test-runner-register/esm --loader @swc-node/register/esm main.ts"
+    "test:unit": "node -r test-runner-register/esm --loader @swc-node/register/esm main.ts"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.7",

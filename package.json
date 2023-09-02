@@ -16,7 +16,7 @@
       "require": "./cjs.js"
     },
     "./esm": {
-      "import": "./esm.mjs"
+      "require": "./esm.cjs"
     }
   },
   "scripts": {

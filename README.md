@@ -70,7 +70,7 @@ if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === import.m
 ```
 
 ```bash
-node --loader test-runner-register/esm --loader @swc-node/register/esm path/to/script.ts
+node -r test-runner-register/esm --loader @swc-node/register/esm path/to/script.ts
 ```
 
 ```log
