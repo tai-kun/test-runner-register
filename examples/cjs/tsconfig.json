@@ -1,0 +1,9 @@
+{
+  "include": [
+    "./main.ts",
+    "./env.d.ts"
+  ],
+  "compilerOptions": {
+    "module": "CommonJS"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "test-runner-register",
+  "description": "In-source testing with the Node.js Test Runner",
+  "version": "0.0.0",
+  "files": [
+    "cjs.js",
+    "esm.mjs",
+    "index.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "require": "./cjs.js",
+      "import": "./esm.mjs"
+    },
+    "./cjs": {
+      "require": "./cjs.js"
+    },
+    "./esm": {
+      "import": "./esm.mjs"
+    }
+  },
+  "scripts": {
+    "test": "bash scripts/test.sh"
+  },
+  "volta": {
+    "node": "18.17.1"
+  }
+}

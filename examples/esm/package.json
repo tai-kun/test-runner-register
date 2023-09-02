@@ -1,0 +1,17 @@
+{
+  "name": "test-runner-register-esm",
+  "type": "module",
+  "scripts": {
+    "test:static": "tsc --noEmit",
+    "test:unit": "node --loader test-runner-register/esm --loader @swc-node/register/esm main.ts"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.6.7",
+    "@types/node": "^18.17.13",
+    "test-runner-register": "file:../..",
+    "typescript": "^5.2.2"
+  },
+  "volta": {
+    "node": "18.17.1"
+  }
+}
