@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "files": [
     "cjs.js",
-    "esm.mjs",
+    "esm.cjs",
     "index.d.ts"
   ],
   "exports": {
     ".": {
       "require": "./cjs.js",
-      "import": "./esm.mjs"
+      "import": "./esm.cjs"
     },
     "./cjs": {
       "require": "./cjs.js"
