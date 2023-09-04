@@ -40,7 +40,7 @@ if (
 Run:
 
 ```bash
-node -r test-runner-register/cjs \
+node -r test-runner-register \
      -r @swc-node/register \
      path/to/script.ts
 ```
@@ -88,7 +88,7 @@ if (
 Run:
 
 ```bash
-node -r test-runner-register/esm \
+node -r test-runner-register \
      --loader @swc-node/register/esm \
      path/to/script.ts
 ```
@@ -96,9 +96,9 @@ node -r test-runner-register/esm \
 Command diff:
 
 ```diff
-- node -r test-runner-register/cjs \
+  node -r test-runner-register \
 -      -r @swc-node/register \
-+ node -r test-runner-register/esm \
+  node -r test-runner-register \
 +      --loader @swc-node/register/esm \
        path/to/script.ts
 ```

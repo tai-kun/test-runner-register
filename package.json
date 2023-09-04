@@ -3,14 +3,14 @@
   "description": "In-source testing with the Node.js Test Runner",
   "version": "0.0.0",
   "files": [
+    "auto.cjs",
     "cjs.js",
     "esm.cjs",
     "index.d.ts"
   ],
   "exports": {
     ".": {
-      "require": "./cjs.js",
-      "import": "./esm.cjs"
+      "require": "./auto.cjs"
     },
     "./cjs": {
       "require": "./cjs.js"
