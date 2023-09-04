@@ -52,7 +52,8 @@ function run_test() {
 
     run npm ci
     run npm run test:static
-    run npm run test:unit
+    run npm run test:unit:swc
+    run npm run test:unit:esbuild
 
     if [ -z "$node_version" ]; then
         :

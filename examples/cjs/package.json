@@ -3,15 +3,14 @@
   "type": "commonjs",
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit": "node -r test-runner-register/cjs -r @swc-node/register main.ts"
+    "test:unit:swc": "node -r test-runner-register -r @swc-node/register main.ts",
+    "test:unit:esbuild": "node -r test-runner-register -r esbuild-register main.ts"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.7",
     "@types/node": "^18.17.13",
+    "esbuild-register": "^3.4.2",
     "test-runner-register": "file:../..",
     "typescript": "^5.2.2"
-  },
-  "volta": {
-    "node": "18.17.1"
   }
 }
