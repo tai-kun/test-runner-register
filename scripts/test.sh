@@ -15,6 +15,7 @@ if [ -n "$CI" ]; then
 fi
 
 function run() {
+    local rc
     local LOG_FILE
 
     echo -n "running: $*"
@@ -38,6 +39,7 @@ function run() {
 }
 
 function run_test() {
+    local rs
     local mod=$1
     local node_version=$2
 
@@ -50,27 +52,36 @@ function run_test() {
         volta pin "node@$node_version"
     fi
 
-    run npm ci
-    run npm run test:static
-    run npm run test:unit:swc
-    run npm run test:unit:esbuild
+    rs=0
+    run npm ci || rs=1
+    run npm run test:static || rs=1
+    run npm run test:unit:swc || rs=1
+    run npm run test:unit:esbuild || rs=1
+    run npm run test:unit:ts-node || rs=1
 
     if [ -z "$node_version" ]; then
         :
     else
         mv package.json.bak package.json
     fi
+
+    return $rs
 }
+
+rs=0
 
 if type volta >/dev/null 2>&1; then
     for mod in cjs esm; do
         for node_version in $NODE_VERSIONS; do
-            (cd "examples/$mod" && run_test "$mod" "$node_version")
+            (cd "examples/$mod" && run_test "$mod" "$node_version") || rs=1
             echo
         done
     done
 else
     for mod in cjs esm; do
-        (cd "examples/$mod" && run_test "$mod")
+        (cd "examples/$mod" && run_test "$mod") || rs=1
+        echo
     done
 fi
+
+exit $rs

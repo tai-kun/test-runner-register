@@ -1,5 +1,5 @@
 {
-  "include": [
+  "files": [
     "./main.ts",
     "./env.d.ts"
   ],
