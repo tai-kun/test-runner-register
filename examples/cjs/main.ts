@@ -15,3 +15,14 @@ if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === __filena
     })
   })
 }
+
+if (process.env.NODE_ENV === "test") {
+  const {
+    test,
+    assert
+  } = testRunner
+
+  test("should be this file", () => {
+    assert.equal(process.env.TEST_RUNNER_FILE, __filename)
+  })
+}

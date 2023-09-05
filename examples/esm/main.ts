@@ -15,3 +15,14 @@ if (process.env.NODE_ENV === "test" && process.env.TEST_RUNNER_FILE === import.m
     })
   })
 }
+
+if (process.env.NODE_ENV === "test") {
+  const {
+    test,
+    assert
+  } = testRunner
+
+  test("should be this file", () => {
+    assert.equal(process.env.TEST_RUNNER_FILE, import.meta.url)
+  })
+}
