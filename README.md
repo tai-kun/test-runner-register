@@ -121,3 +121,52 @@ Log:
 ℹ todo 0
 ℹ duration_ms 0.062858
 ```
+
+### esbuild-register
+
+Install:
+
+```bash
+npm i -D esbuild-register
+```
+
+CJS:
+
+```bash
+node -r test-runner-register \
+     -r esbuild-register \
+     path/to/script.ts
+```
+
+ESM:
+
+```bash
+node -r test-runner-register \
+     --loader esbuild-register \
+     -r esbuild-register \
+     path/to/script.ts
+```
+
+### ts-node
+
+Install:
+
+```bash
+npm i -D ts-node
+```
+
+CJS:
+
+```bash
+node -r test-runner-register \
+     -r ts-node/register \
+     path/to/script.ts
+```
+
+ESM:
+
+```bash
+node -r test-runner-register \
+     --loader ts-node/esm \
+     path/to/script.ts
+```
