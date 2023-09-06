@@ -21,7 +21,13 @@ else {
 }
 
 function transpiledFileExtension() {
-  if (/,--(experimental-)?loader,@swc-node\/register\/esm,/.test(`,${process.execArgv},`)) {
+  if (
+    // --loader @swc-node/register/esm
+    // --loader=@swc-node/register/esm
+    // --experimental-loader @swc-node/register/esm
+    // --experimental-loader=@swc-node/register/esm
+    /,--(experimental-)?loader[,=]@swc-node\/register\/esm,/.test(`,${process.execArgv},`)
+  ) {
     // Why ".mjs"?:
     // https://github.com/swc-project/swc-node/blob/9f674cd67091192b1fe62befd13cf4b61a6377e5/packages/register/esm.mts#L73
     return ".mjs";
