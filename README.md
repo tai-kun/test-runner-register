@@ -2,7 +2,19 @@
 
 In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.html)
 
-## Usage
+[![npm latest package](https://img.shields.io/npm/v/test-runner-register/latest.svg)](https://www.npmjs.com/package/test-runner-register)
+[![Quality](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml/badge.svg)](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml)
+
+- [Usage with SWC](#usage-with-swc)
+  - [Install](#install)
+  - [CJS](#cjs)
+  - [ESM](#esm)
+- [Other registers](#other-loaders)
+  - [esbuild-register](#esbuild-register)
+  - [ts-node](#ts-node)
+- [API](#api)
+
+## Usage with SWC
 
 ### Install
 
@@ -16,18 +28,22 @@ npm i -D \
 
 ### CJS
 
-`path/to/script.ts`
+path/to/script.ts:
 
 ```ts
+const assert = require("node:assert/strict")
+const { test, describe } = require("node:test")
+
 if (
   process.env.NODE_ENV === "test" &&
   process.env.TEST_RUNNER_FILE === __filename
 ) {
-  const {
-    test,
-    assert,
-    describe
-  } = testRunner
+  // You can also use `testRunner` instead of "node:*" modules.
+  // const {
+  //   test,
+  //   assert,
+  //   describe
+  // } = testRunner
 
   describe("...", () => {
     test("...", () => {
@@ -64,18 +80,30 @@ Log:
 
 ### ESM
 
-`path/to/script.ts`
+package.json:
+
+```json
+{
+  "type": "module"
+}
+```
+
+path/to/script.ts:
 
 ```ts
+import assert from "node:assert/strict"
+import { test, describe } from "node:test"
+
 if (
   process.env.NODE_ENV === "test" &&
   process.env.TEST_RUNNER_FILE === import.meta.url
 ) {
-  const {
-    test,
-    assert,
-    describe
-  } = testRunner
+  // You can also use `testRunner` instead of "node:*" modules.
+  // const {
+  //   test,
+  //   assert,
+  //   describe
+  // } = testRunner
 
   describe("...", () => {
     test("...", () => {
@@ -121,6 +149,8 @@ Log:
 ℹ todo 0
 ℹ duration_ms 0.062858
 ```
+
+## Other registers
 
 ### esbuild-register
 
@@ -169,4 +199,56 @@ ESM:
 node -r test-runner-register \
      --loader ts-node/esm \
      path/to/script.ts
+```
+
+## API
+
+`test-runner-register` exports `testRunner` global variable:
+
+```js
+const test = require("node:test");
+const assert = require("node:assert/strict");
+
+global.testRunner = Object.assign(test, { assert });
+```
+
+env.d.ts:
+
+```ts
+/// <reference types="test-runner-register" />
+```
+
+tsconfig.json:
+
+```json
+{
+  "files": [
+    "./env.d.ts"
+  ]
+}
+```
+
+path/to/script.ts:
+
+```ts
+// import assert from "node:assert/strict"
+// import { test, describe } from "node:test"
+
+if (
+  process.env.NODE_ENV === "test" &&
+  process.env.TEST_RUNNER_FILE === import.meta.url
+) {
+  // 🎉 You can also use `testRunner` instead of "node:*" modules.
+  const {
+    test,
+    assert,
+    describe
+  } = testRunner
+
+  describe("...", () => {
+    test("...", () => {
+      assert(true)
+    })
+  })
+}
 ```
