@@ -1,1 +1,1 @@
-/// <reference types="test-runner-register" />
+/// <reference types="test-runner-register/globals" />

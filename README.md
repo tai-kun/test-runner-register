@@ -215,7 +215,7 @@ global.testRunner = Object.assign(test, { assert });
 env.d.ts:
 
 ```ts
-/// <reference types="test-runner-register" />
+/// <reference types="test-runner-register/globals" />
 ```
 
 tsconfig.json:

@@ -1,12 +1,12 @@
 {
   "name": "test-runner-register",
-  "description": "In-source testing with the Node.js Test Runner",
   "version": "0.0.0",
+  "description": "In-source testing with the Node.js Test Runner",
   "files": [
     "auto.cjs",
     "cjs.js",
     "esm.cjs",
-    "index.d.ts"
+    "globals.d.ts"
   ],
   "exports": {
     ".": {
@@ -17,6 +17,9 @@
     },
     "./esm": {
       "require": "./esm.cjs"
+    },
+    "./globals": {
+      "types": "./globals.d.ts"
     }
   },
   "scripts": {
