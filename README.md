@@ -11,8 +11,8 @@ In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.htm
   - [ESM](#esm)
 - [Other registers](#other-loaders)
   - [ts-node](#ts-node)
-  - [esbuild-register](#esbuild-register)
-- [API](#api)
+  - [esbuild-register](#esbuild-register) ⚠️
+- [TypeScript](#typescript)
 
 ## Usage with SWC
 
@@ -39,11 +39,7 @@ if (
   process.env.TEST_RUNNER_FILE === __filename
 ) {
   // You can also use `testRunner` instead of "node:*" modules.
-  // const {
-  //   test,
-  //   assert,
-  //   describe
-  // } = testRunner
+  // const { test, assert, describe } = testRunner
 
   describe("...", () => {
     test("...", () => {
@@ -61,22 +57,24 @@ node -r test-runner-register \
      path/to/script.ts
 ```
 
-Log:
+<details>
+  <summary>Log:</summary>
 
-```log
-▶ ...
-  ✔ ... (0.195722ms)
-▶ ... (0.838251ms)
+  ```log
+  ▶ ...
+    ✔ ... (0.195722ms)
+  ▶ ... (0.838251ms)
 
-ℹ tests 1
-ℹ suites 1
-ℹ pass 1
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 0.066372
-```
+  ℹ tests 1
+  ℹ suites 1
+  ℹ pass 1
+  ℹ fail 0
+  ℹ cancelled 0
+  ℹ skipped 0
+  ℹ todo 0
+  ℹ duration_ms 0.066372
+  ```
+</details>
 
 ### ESM
 
@@ -99,11 +97,7 @@ if (
   process.env.TEST_RUNNER_FILE === import.meta.url
 ) {
   // You can also use `testRunner` instead of "node:*" modules.
-  // const {
-  //   test,
-  //   assert,
-  //   describe
-  // } = testRunner
+  // const { test, assert, describe } = testRunner
 
   describe("...", () => {
     test("...", () => {
@@ -121,34 +115,38 @@ node -r test-runner-register \
      path/to/script.ts
 ```
 
-Command diff:
+<details>
+  <summary>Command diff:</summary>
 
-```diff
-  node -r test-runner-register \
--      -r @swc-node/register \
-  node -r test-runner-register \
-+      --loader @swc-node/register/esm \
-       path/to/script.ts
-```
+  ```diff
+    node -r test-runner-register \
+  -      -r @swc-node/register \
+    node -r test-runner-register \
+  +      --loader @swc-node/register/esm \
+        path/to/script.ts
+  ```
+</details>
 
-Log:
+<details>
+  <summary>Log:</summary>
 
-```log
-(node:32773) ExperimentalWarning: Custom ESM Loaders is an experimental feature and might change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-▶ ...
-  ✔ ... (0.153848ms)
-▶ ... (0.78856ms)
+  ```log
+  (node:32773) ExperimentalWarning: Custom ESM Loaders is an experimental feature and might change at any time
+  (Use `node --trace-warnings ...` to show where the warning was created)
+  ▶ ...
+    ✔ ... (0.153848ms)
+  ▶ ... (0.78856ms)
 
-ℹ tests 1
-ℹ suites 1
-ℹ pass 1
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 0.062858
-```
+  ℹ tests 1
+  ℹ suites 1
+  ℹ pass 1
+  ℹ fail 0
+  ℹ cancelled 0
+  ℹ skipped 0
+  ℹ todo 0
+  ℹ duration_ms 0.062858
+  ```
+</details>
 
 ## Other registers
 
@@ -204,7 +202,7 @@ node -r test-runner-register \
      path/to/script.ts
 ```
 
-## API
+## TypeScript
 
 `test-runner-register` exports `testRunner` global variable:
 
@@ -242,11 +240,7 @@ if (
   process.env.TEST_RUNNER_FILE === import.meta.url
 ) {
   // 🎉 You can also use `testRunner` instead of "node:*" modules.
-  const {
-    test,
-    assert,
-    describe
-  } = testRunner
+  const { test, assert, describe } = testRunner
 
   describe("...", () => {
     test("...", () => {
