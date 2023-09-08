@@ -10,8 +10,8 @@ In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.htm
   - [CJS](#cjs)
   - [ESM](#esm)
 - [Other registers](#other-loaders)
-  - [esbuild-register](#esbuild-register)
   - [ts-node](#ts-node)
+  - [esbuild-register](#esbuild-register)
 - [API](#api)
 
 ## Usage with SWC
@@ -152,31 +152,6 @@ Log:
 
 ## Other registers
 
-### esbuild-register
-
-Install:
-
-```bash
-npm i -D esbuild-register
-```
-
-CJS:
-
-```bash
-node -r test-runner-register \
-     -r esbuild-register \
-     path/to/script.ts
-```
-
-ESM:
-
-```bash
-node -r test-runner-register \
-     --loader esbuild-register \
-     -r esbuild-register \
-     path/to/script.ts
-```
-
 ### ts-node
 
 Install:
@@ -198,6 +173,34 @@ ESM:
 ```bash
 node -r test-runner-register \
      --loader ts-node/esm \
+     path/to/script.ts
+```
+
+### esbuild-register
+
+> [!WARNING]  
+> At least with Node.js v20.6.0 it may not work.
+
+Install:
+
+```bash
+npm i -D esbuild-register
+```
+
+CJS:
+
+```bash
+node -r test-runner-register \
+     -r esbuild-register \
+     path/to/script.ts
+```
+
+ESM:
+
+```bash
+node -r test-runner-register \
+     --loader esbuild-register \
+     -r esbuild-register \
      path/to/script.ts
 ```
 

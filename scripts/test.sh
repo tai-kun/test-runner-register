@@ -54,7 +54,7 @@ function run_tests() {
     run npm ci || rs=1
     run npm run test:static || rs=1
     run npm run test:unit:swc || rs=1
-    run npm run test:unit:esbuild || rs=1
+    # run npm run test:unit:esbuild || rs=1
     run npm run test:unit:ts-node || rs=1
 
     if [ -z "$node_version" ]; then
