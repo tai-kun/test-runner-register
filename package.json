@@ -22,6 +22,14 @@
       "types": "./globals.d.ts"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tai-kun/test-runner-register"
+  },
+  "author": {
+    "name": "tai-kun",
+    "url": "https://github.com/tai-kun"
+  },
   "scripts": {
     "test": "bash scripts/test.sh"
   },
