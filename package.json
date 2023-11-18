@@ -31,7 +31,8 @@
     "url": "https://github.com/tai-kun"
   },
   "scripts": {
-    "test": "bash scripts/test.sh"
+    "test": "bash scripts/test.sh",
+    "update": "bash scripts/update.sh"
   },
   "volta": {
     "node": "18.17.1"
