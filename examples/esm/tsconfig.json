@@ -4,6 +4,7 @@
     "./env.d.ts"
   ],
   "compilerOptions": {
-    "module": "ES2020"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   }
 }
