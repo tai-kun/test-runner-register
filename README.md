@@ -176,8 +176,9 @@ node -r test-runner-register \
 
 ### esbuild-register
 
-> [!WARNING]  
+> [!WARNING]
 > At least with Node.js v20.6.0 it may not work.
+> Issue: https://github.com/egoist/esbuild-register/issues/96
 
 Install:
 
