@@ -16,6 +16,3 @@ if (fileIndex in process.argv) {
 
   global.testRunner = Object.assign(test, { assert });
 }
-else {
-  throw new Error("This file should not be loaded directly.");
-}
