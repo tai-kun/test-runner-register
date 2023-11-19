@@ -10,13 +10,15 @@
   ],
   "exports": {
     ".": {
-      "require": "./auto.cjs"
+      "require": "./auto.cjs",
+      "import": "./auto.cjs"
     },
     "./cjs": {
       "require": "./cjs.js"
     },
     "./esm": {
-      "require": "./esm.cjs"
+      "require": "./esm.cjs",
+      "import": "./esm.cjs"
     },
     "./globals": {
       "types": "./globals.d.ts"
