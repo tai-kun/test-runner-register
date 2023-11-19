@@ -107,23 +107,37 @@ if (
 }
 ```
 
-Run:
+<details>
+  <summary>Before v20.6.0</summary>
 
-```bash
-node -r test-runner-register \
-     --loader @swc-node/register/esm \
-     path/to/script.ts
-```
+  Run:
+
+  ```bash
+  node -r test-runner-register \
+       --loader @swc-node/register/esm \
+       path/to/script.ts
+  ```
+</details>
 
 <details>
-  <summary>Command diff:</summary>
+  <summary>After v20.6.0</summary>
 
-  ```diff
-    node -r test-runner-register \
-  -      -r @swc-node/register \
-    node -r test-runner-register \
-  +      --loader @swc-node/register/esm \
-        path/to/script.ts
+  ./path/to/register.js:
+
+  ```js
+  import { register } from "node:module"
+  import { pathToFileURL } from "node:url"
+
+  import "test-runner-register"
+
+  register("@swc-node/register/esm", pathToFileURL("./"))
+  ```
+
+  Run:
+
+  ```bash
+  node --import ./path/to/register.js \
+       path/to/script.ts
   ```
 </details>
 

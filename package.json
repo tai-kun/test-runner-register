@@ -33,6 +33,7 @@
     "url": "https://github.com/tai-kun"
   },
   "scripts": {
+    "ci": "bash scripts/ci.sh",
     "test": "bash scripts/test.sh",
     "update": "bash scripts/update.sh"
   },
