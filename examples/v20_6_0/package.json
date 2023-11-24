@@ -3,9 +3,9 @@
   "type": "module",
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit:swc": "node --import ./register/swc.js main.ts",
+    "test:unit:swc": "node --import test-runner-register/import main.ts",
     "test:unit:esbuild": "exit 0",
-    "test:unit:ts-node": "node --import ./register/ts-node.js main.ts"
+    "test:unit:ts-node": "node --import test-runner-register/import/ts-node main.ts"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.8",
