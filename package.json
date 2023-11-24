@@ -6,7 +6,10 @@
     "auto.cjs",
     "cjs.js",
     "esm.cjs",
-    "globals.d.ts"
+    "globals.d.ts",
+    "auto.mjs",
+    "swc.mjs",
+    "ts-node.mjs"
   ],
   "exports": {
     ".": {
