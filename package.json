@@ -22,7 +22,20 @@
     },
     "./globals": {
       "types": "./globals.d.ts"
+    },
+    "./import": {
+      "import": "./auto.mjs"
+    },
+    "./import/swc": {
+      "import": "./swc.mjs"
+    },
+    "./import/ts-node": {
+      "import": "./ts-node.mjs"
     }
+  },
+  "optionalDependencies": {
+    "@swc-node/register": "^1.6.8",
+    "ts-node": "^10.9.1"
   },
   "repository": {
     "type": "git",
