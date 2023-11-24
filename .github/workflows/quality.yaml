@@ -39,3 +39,10 @@ jobs:
           cache: npm
       - name: Test
         run: npm run ci v20_6_0
+
+  test-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: bash scripts/test-config.sh

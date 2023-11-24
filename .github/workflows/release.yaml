@@ -40,10 +40,18 @@ jobs:
       - name: Test
         run: npm run ci v20_6_0
 
+  test-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: npm run ci package
+
   publish:
     needs:
       - test
       - test-v20_6_0
+      - test-config
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
