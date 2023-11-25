@@ -46,6 +46,7 @@ function run_tests() {
     run npm run test:unit:swc || rs=$?
     run npm run test:unit:esbuild || rs=$?
     run npm run test:unit:ts-node || rs=$?
+    run npm run test:unit:tsx || rs=$?
 
     return $rs
 }

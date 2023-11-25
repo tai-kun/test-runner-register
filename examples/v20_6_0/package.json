@@ -3,9 +3,10 @@
   "type": "module",
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit:swc": "node --import test-runner-register/import main.ts",
+    "test:unit:swc": "node --import test-runner-register/import ./main.ts",
     "test:unit:esbuild": "exit 0",
-    "test:unit:ts-node": "node --import test-runner-register/import/ts-node main.ts"
+    "test:unit:ts-node": "node --import test-runner-register/import/ts-node ./main.ts",
+    "test:unit:tsx": "tsx -r test-runner-register ./main.ts"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.8",
@@ -13,6 +14,7 @@
     "esbuild-register": "^3.5.0",
     "test-runner-register": "file:../..",
     "ts-node": "^10.9.1",
+    "tsx": "^4.5.0",
     "typescript": "^5.2.2"
   }
 }
