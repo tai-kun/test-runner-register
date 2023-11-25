@@ -3,4 +3,4 @@ import { pathToFileURL } from "node:url"
 
 import "test-runner-register/esm"
 
-register("ts-node/esm", pathToFileURL("./"))
+register("ts-node/esm", pathToFileURL("./").href)
