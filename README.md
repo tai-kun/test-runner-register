@@ -5,18 +5,13 @@ In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.htm
 [![npm latest package](https://img.shields.io/npm/v/test-runner-register/latest.svg)](https://www.npmjs.com/package/test-runner-register)
 [![Quality](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml/badge.svg)](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml)
 
-- [Usage with SWC](#usage-with-swc)
-  - [Install](#install)
-  - [CJS](#cjs)
-  - [ESM](#esm)
-- [Other registers](#other-loaders)
-  - [ts-node](#ts-node)
-  - [esbuild-register](#esbuild-register) ⚠️
+- [Install](#install)
+- [CJS](#cjs)
+- [ESM](#esm)
 - [TypeScript](#typescript)
+- [More examples](#more-examples)
 
-## Usage with SWC
-
-### Install
+## Install
 
 ```bash
 npm i -D \
@@ -26,7 +21,7 @@ npm i -D \
   typescript
 ```
 
-### CJS
+## CJS
 
 path/to/script.ts:
 
@@ -76,7 +71,7 @@ node -r test-runner-register \
   ```
 </details>
 
-### ESM
+## ESM
 
 package.json:
 
@@ -107,46 +102,25 @@ if (
 }
 ```
 
-<details>
-  <summary>Before v20.6.0</summary>
+Run (Node.js < 20.6.0):
 
-  Run:
+```bash
+node -r test-runner-register \
+     --loader @swc-node/register/esm \
+     ./main.ts
+```
 
-  ```bash
-  node -r test-runner-register \
-       --loader @swc-node/register/esm \
-       path/to/script.ts
-  ```
-</details>
+Run (Node.js >= 20.6.0):
 
-<details>
-  <summary>After v20.6.0</summary>
-
-  ./path/to/register.js:
-
-  ```js
-  import { register } from "node:module"
-  import { pathToFileURL } from "node:url"
-
-  import "test-runner-register"
-
-  register("@swc-node/register/esm", pathToFileURL("./"))
-  ```
-
-  Run:
-
-  ```bash
-  node --import ./path/to/register.js \
-       path/to/script.ts
-  ```
-</details>
+```bash
+node --import test-runner-register/import \
+     ./main.ts
+```
 
 <details>
   <summary>Log:</summary>
 
   ```log
-  (node:32773) ExperimentalWarning: Custom ESM Loaders is an experimental feature and might change at any time
-  (Use `node --trace-warnings ...` to show where the warning was created)
   ▶ ...
     ✔ ... (0.153848ms)
   ▶ ... (0.78856ms)
@@ -161,61 +135,6 @@ if (
   ℹ duration_ms 0.062858
   ```
 </details>
-
-## Other registers
-
-### ts-node
-
-Install:
-
-```bash
-npm i -D ts-node
-```
-
-CJS:
-
-```bash
-node -r test-runner-register \
-     -r ts-node/register \
-     path/to/script.ts
-```
-
-ESM:
-
-```bash
-node -r test-runner-register \
-     --loader ts-node/esm \
-     path/to/script.ts
-```
-
-### esbuild-register
-
-> [!WARNING]
-> At least with Node.js v20.6.0 it may not work.
-> Issue: https://github.com/egoist/esbuild-register/issues/96
-
-Install:
-
-```bash
-npm i -D esbuild-register
-```
-
-CJS:
-
-```bash
-node -r test-runner-register \
-     -r esbuild-register \
-     path/to/script.ts
-```
-
-ESM:
-
-```bash
-node -r test-runner-register \
-     --loader esbuild-register \
-     -r esbuild-register \
-     path/to/script.ts
-```
 
 ## TypeScript
 
@@ -264,3 +183,10 @@ if (
   })
 }
 ```
+
+## More examples
+
+- [CJS](./examples/cjs/README.md)
+- ESM
+  - [Node.js < 20.6.0](./examples/esm/README.md)
+  - [Node.js >= 20.6.0](./examples/v20_6_0/README.md)
