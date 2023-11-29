@@ -11,8 +11,15 @@ if (fileIndex in process.argv) {
   process.env.NODE_ENV = "test";
   process.env.TEST_RUNNER_FILE = testRunnerFile;
 
-  const test = require("node:test");
-  const assert = require("node:assert/strict");
+  try {
+    const test = require("node:test");
+    const assert = require("node:assert/strict");
 
-  global.testRunner = Object.assign(test, { assert });
+    global.testRunner = Object.assign(test, { assert });
+  } catch (_) {
+    console.warn(
+      "The `node:test` module is not supported in this environment." +
+      "So, the `testRunner` global variable is not available."
+    );
+  }
 }
