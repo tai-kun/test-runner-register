@@ -188,5 +188,6 @@ if (
 
 - [CJS](./examples/cjs/README.md)
 - ESM
-  - [Node.js < 20.6.0](./examples/esm/README.md)
-  - [Node.js >= 20.6.0](./examples/v20_6_0/README.md)
+  - [<18.19.0 || >=20.0.0 <20.6.0](./examples/esm/README.md)
+  - [>=18.19.0 <19.0.0](./examples/v18_19_0/README.md)
+  - [>=20.6.0](./examples/v20_6_0/README.md)
