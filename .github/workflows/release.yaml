@@ -12,7 +12,7 @@ jobs:
       matrix:
         node-version:
           - "16.x"
-          - "18.x"
+          - "18.18"
           - "20.5"
     steps:
       - uses: actions/checkout@v3
@@ -23,6 +23,22 @@ jobs:
           cache: npm
       - name: Test
         run: npm run ci cjs esm
+
+  test-v18_19_0:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - ">=18.19.0 <19.0.0"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Test
+        run: npm run ci v18_19_0
 
   test-v20_6_0:
     runs-on: ubuntu-latest
@@ -50,6 +66,7 @@ jobs:
   publish:
     needs:
       - test
+      - test-v18_19_0
       - test-v20_6_0
       - test-config
     runs-on: ubuntu-latest
