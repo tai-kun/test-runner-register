@@ -1,0 +1,23 @@
+{
+  "name": "test-runner-register-node-v18_19_0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.19.0 <19.0.0"
+  },
+  "scripts": {
+    "test:static": "tsc --noEmit",
+    "test:unit:swc": "node --import test-runner-register/import ./main.ts",
+    "test:unit:esbuild": "exit 0",
+    "test:unit:ts-node": "node --import test-runner-register/import/ts-node ./main.ts",
+    "test:unit:tsx": "exit 0"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.6.8",
+    "@types/node": "^18.17.13",
+    "esbuild-register": "^3.5.0",
+    "test-runner-register": "file:../..",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.5.0",
+    "typescript": "^5.2.2"
+  }
+}
