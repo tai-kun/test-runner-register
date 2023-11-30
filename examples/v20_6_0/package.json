@@ -1,6 +1,9 @@
 {
   "name": "test-runner-register-node-v20_6_0",
   "type": "module",
+  "engines": {
+    "node": ">=20.6.0"
+  },
   "scripts": {
     "test:static": "tsc --noEmit",
     "test:unit:swc": "node --import test-runner-register/import ./main.ts",

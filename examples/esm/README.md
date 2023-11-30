@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Node.js < 20.6.0
+Node.js `<18.19.0 || >=20.0.0 <20.6.0`
 
 If you are using Node.js 20.6.0 or later, please [see](../v20_6_0/README.md) here.
 

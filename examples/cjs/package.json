@@ -1,6 +1,9 @@
 {
   "name": "test-runner-register-cjs",
   "type": "commonjs",
+  "engines": {
+    "node": "*"
+  },
   "scripts": {
     "test:static": "tsc --noEmit",
     "test:unit:swc": "node -r test-runner-register -r @swc-node/register ./main.ts",

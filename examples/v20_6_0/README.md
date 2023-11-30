@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Node.js >= 20.6.0
+Node.js `>=20.6.0`
 
 If you are using Node.js earlier than 20.6.0, please [see](../esm/README.md) here.
 

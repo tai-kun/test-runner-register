@@ -1,6 +1,9 @@
 {
   "name": "test-runner-register-esm",
   "type": "module",
+  "engines": {
+    "node": "<18.19.0 || >=20.0.0 <20.6.0"
+  },
   "scripts": {
     "test:static": "tsc --noEmit",
     "test:unit:swc": "node -r test-runner-register --loader @swc-node/register/esm ./main.ts",
