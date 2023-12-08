@@ -2,7 +2,7 @@
   "name": "test-runner-register-cjs",
   "type": "commonjs",
   "engines": {
-    "node": "*"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "test:static": "tsc --noEmit",

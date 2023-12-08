@@ -2,7 +2,7 @@
   "name": "test-runner-register-esm",
   "type": "module",
   "engines": {
-    "node": "<18.19.0 || >=20.0.0 <20.6.0"
+    "node": ">=18.0.0 <18.19.0 || >=20.0.0 <20.6.0"
   },
   "scripts": {
     "test:static": "tsc --noEmit",
