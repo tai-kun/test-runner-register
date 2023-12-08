@@ -26,6 +26,10 @@
     "./globals": {
       "types": "./globals.d.ts"
     },
+    "./register": {
+      "require": "./register.cjs",
+      "import": "./register.cjs"
+    },
     "./import": {
       "import": "./auto.mjs"
     },
