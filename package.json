@@ -2,6 +2,10 @@
   "name": "test-runner-register",
   "version": "0.0.0",
   "description": "In-source testing with the Node.js Test Runner",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "files": [
     "auto.cjs",
     "cjs.js",
