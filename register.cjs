@@ -16,7 +16,7 @@ exports.register = function register(setup) {
   setup.getFilePath = setup.getFilePath || (x => x);
 
   if (!(fileIndex in setup.argv)) {
-    throw new Error("The `argv` array must contain the file path.");
+    return;
   }
 
   if (/,--test[,=]/.test(`,${setup.execArgv},`)) {
