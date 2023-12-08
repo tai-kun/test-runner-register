@@ -1,6 +1,7 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     TEST_RUNNER_FILE?: string
+    TEST_RUNNER_WATCH?: "true"
   }
 }
 
