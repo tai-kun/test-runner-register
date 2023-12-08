@@ -55,5 +55,12 @@
   },
   "volta": {
     "node": "18.17.1"
-  }
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "runner",
+    "test-runner",
+    "test-runner-register"
+  ]
 }
