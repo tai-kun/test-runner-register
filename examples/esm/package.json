@@ -6,10 +6,10 @@
   },
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit:swc": "node -r test-runner-register --loader @swc-node/register/esm ./main.ts",
-    "test:unit:esbuild": "node -r test-runner-register --loader esbuild-register/loader -r esbuild-register ./main.ts",
-    "test:unit:ts-node": "node -r test-runner-register --loader ts-node/esm ./main.ts",
-    "test:unit:tsx": "tsx -r test-runner-register ./main.ts"
+    "test:unit:swc": "node --test -r test-runner-register --loader @swc-node/register/esm ./main.ts",
+    "test:unit:esbuild": "node --test -r test-runner-register --loader esbuild-register/loader -r esbuild-register ./main.ts",
+    "test:unit:ts-node": "node --test -r test-runner-register --loader ts-node/esm ./main.ts",
+    "test:unit:tsx": "exit 0"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.8",

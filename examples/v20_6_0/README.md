@@ -13,7 +13,8 @@ If you are using CommonJS, please [see](../cjs/README.md) here.
 ### [`@swc-node/register`](https://www.npmjs.com/package/@swc-node/register) register
 
 ```bash
-node --import test-runner-register/import \
+node --test \
+     --import test-runner-register/import \
      ./main.ts
 ```
 
@@ -26,7 +27,8 @@ Issue: https://github.com/egoist/esbuild-register/issues/96
 ### [`ts-node`](https://www.npmjs.com/package/ts-node) register
 
 ```bash
-node --import test-runner-register/import/ts-node \
+node --test \
+     --import test-runner-register/import/ts-node \
      ./main.ts
 ```
 
@@ -36,7 +38,4 @@ node --import test-runner-register/import/ts-node \
 
 ### [`tsx`](https://www.npmjs.com/package/tsx) executer
 
-```bash
-npx tsx -r test-runner-register \
-        ./main.ts
-```
+**Not Supported**

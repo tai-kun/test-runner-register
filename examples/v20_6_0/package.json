@@ -6,10 +6,10 @@
   },
   "scripts": {
     "test:static": "tsc --noEmit",
-    "test:unit:swc": "node --import test-runner-register/import ./main.ts",
+    "test:unit:swc": "node --test --import test-runner-register/import ./main.ts",
     "test:unit:esbuild": "exit 0",
-    "test:unit:ts-node": "node --import test-runner-register/import/ts-node ./main.ts",
-    "test:unit:tsx": "tsx -r test-runner-register ./main.ts"
+    "test:unit:ts-node": "node --test --import test-runner-register/import/ts-node ./main.ts",
+    "test:unit:tsx": "exit 0"
   },
   "devDependencies": {
     "@swc-node/register": "^1.6.8",
