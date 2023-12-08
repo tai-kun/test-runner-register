@@ -19,25 +19,23 @@ exports.register = function register(setup) {
     return;
   }
 
-  if (/,--test(-[-a-z]{1,100})?[,=]/.test(`,${setup.execArgv},`)) {
-    process.env.NODE_ENV = "test";
-    process.env.TEST_RUNNER_FILE =
-      setup.getFilePath(resolve(setup.argv[fileIndex]));
+  process.env.NODE_ENV = "test";
+  process.env.TEST_RUNNER_FILE =
+    setup.getFilePath(resolve(setup.argv[fileIndex]));
 
-    if (/,--watch,/.test(`,${setup.execArgv},`)) {
-      process.env.TEST_RUNNER_WATCH = "true";
-    }
-  } else {
-    try {
-      const test = require("node:test");
-      const assert = require("node:assert/strict");
+  if (/,--watch,/.test(`,${setup.execArgv},`)) {
+    process.env.TEST_RUNNER_WATCH = "true";
+  }
 
-      global.testRunner = Object.assign(test, { assert });
-    } catch (_) {
-      console.warn(
-        "The `node:test` module is not supported in this environment." +
-        "So, the `testRunner` global variable is not available."
-      );
-    }
+  try {
+    const test = require("node:test");
+    const assert = require("node:assert/strict");
+
+    global.testRunner = Object.assign(test, { assert });
+  } catch (_) {
+    console.warn(
+      "The `node:test` module is not supported in this environment." +
+      "So, the `testRunner` global variable is not available."
+    );
   }
 };
