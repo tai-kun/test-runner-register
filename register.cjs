@@ -19,7 +19,7 @@ exports.register = function register(setup) {
     return;
   }
 
-  if (/,--test[,=]/.test(`,${setup.execArgv},`)) {
+  if (/,--test(-[-a-z]{1,100})?[,=]/.test(`,${setup.execArgv},`)) {
     process.env.NODE_ENV = "test";
     process.env.TEST_RUNNER_FILE =
       setup.getFilePath(resolve(setup.argv[fileIndex]));
