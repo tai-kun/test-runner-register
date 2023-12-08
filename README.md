@@ -5,11 +5,16 @@ In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.htm
 [![npm latest package](https://img.shields.io/npm/v/test-runner-register/latest.svg)](https://www.npmjs.com/package/test-runner-register)
 [![Quality](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml/badge.svg)](https://github.com/tai-kun/test-runner-register/actions/workflows/quality.yaml)
 
+- [Requirements](#requirements)
 - [Install](#install)
 - [CJS](#cjs)
 - [ESM](#esm)
 - [TypeScript](#typescript)
 - [More examples](#more-examples)
+
+## Requirements
+
+Node.js `>=18.0.0`
 
 ## Install
 
@@ -188,6 +193,6 @@ if (
 
 - [CJS](./examples/cjs/README.md)
 - ESM
-  - [<18.19.0 || >=20.0.0 <20.6.0](./examples/esm/README.md)
+  - [>=18.0.0 <18.19.0 || >=20.0.0 <20.6.0](./examples/esm/README.md)
   - [>=18.19.0 <19.0.0](./examples/v18_19_0/README.md)
   - [>=20.6.0](./examples/v20_6_0/README.md)
