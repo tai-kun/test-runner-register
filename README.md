@@ -1,5 +1,13 @@
 # test-runner-register
 
+> [!WARNING]  
+> Deprecated repository
+>
+> This repository is deprecated and will no longer receive updates or support.
+> As of January > 25, 2024, i recommend using the following repository instead:
+>
+> [tai-kun/cfg-test.js](https://github.com/tai-kun/cfg-test.js)
+
 In-source testing with the [Node.js Test Runner](https://nodejs.org/api/test.html)
 
 [![npm latest package](https://img.shields.io/npm/v/test-runner-register/latest.svg)](https://www.npmjs.com/package/test-runner-register)
